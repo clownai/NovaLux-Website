@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Overview - NovaLux AI Casino</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/documentation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="documentation-page">
+    <header class="doc-header">
+        <nav>
+            <div class="logo">
+                <a href="../index.html">
+                    <h1>NovaLux</h1>
+                    <span class="tagline">AI Casino</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#overview">Overview</a></li>
+                <li><a href="../index.html#features">Features</a></li>
+                <li><a href="../index.html#architecture">Architecture</a></li>
+                <li><a href="../index.html#games">Games</a></li>
+                <li><a href="../index.html#ai">AI Systems</a></li>
+                <li><a href="../index.html#roadmap">Roadmap</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="documentation-container">
+        <aside class="doc-sidebar">
+            <div class="sidebar-header">
+                <h3>Documentation</h3>
+            </div>
+            <ul class="doc-nav">
+                <li class="active"><a href="system-overview.html">System Overview</a></li>
+                <li><a href="microservices.html">Microservices Architecture</a></li>
+                <li><a href="ai-components.html">AI Components</a></li>
+                <li><a href="game-features.html">Game Features</a></li>
+            </ul>
+        </aside>
+
+        <main class="doc-content">
+            <article>
+                <h1>NovaLux AI Casino - System Architecture Overview</h1>
+
+                <section>
+                    <h2>Introduction</h2>
+                    <p>NovaLux AI Casino is an ambitious, AI-native entertainment ecosystem that transcends conventional casino platforms. This document outlines the high-level architecture of the system, detailing the microservices, AI components, and core features that make up the NovaLux experience.</p>
+                </section>
+
+                <section>
+                    <h2>Core Architecture</h2>
+                    <p>NovaLux is built on a microservices architecture, deployed and managed via Kubernetes on a major cloud provider (AWS/GCP/Azure). The system is designed for scalability, resilience, and real-time performance.</p>
+
+                    <h3>System Diagram</h3>
+                    <div class="code-block">
+<pre>
+┌─────────────────────────────────────────────────────────────────────────┐
+│                           Client Applications                            │
+└───────────────────────────────────┬─────────────────────────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                              API Gateway                                 │
+└───────────────────────────────────┬─────────────────────────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         Real-time Data Pipeline                          │
+│                        (Kafka/Pulsar Streaming)                          │
+└───────┬───────────┬───────────┬───────────┬───────────┬─────────────────┘
+        │           │           │           │           │
+        ▼           ▼           ▼           ▼           ▼
+┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐
+│   User    │ │  Wallet & │ │   Game    │ │    AI     │ │ Community │
+│ Auth &    │ │Transaction│ │  Logic    │ │ Services  │ │    &      │
+│ Profile   │ │ Service   │ │ Services  │ │  Cluster  │ │ Syndicate │
+└───────────┘ └───────────┘ └───────────┘ └───────────┘ └───────────┘
+                                                │
+                                                ▼
+                                          ┌───────────┐
+                                          │ AI Model  │
+                                          │Deployment │
+                                          │ (MLOps)   │
+                                          └───────────┘
+</pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Microservices Architecture</h2>
+
+                    <h3>Core Services</h3>
+                    <ol>
+                        <li>
+                            <strong>User Authentication & Profile Service</strong>
+                            <ul>
+                                <li>Handles user registration, login, and session management</li>
+                                <li>Manages player avatars and profile data</li>
+                                <li>Implements ZKP-based KYC vectors for identity verification</li>
+                                <li>Stores reputation and achievement data</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Wallet & Transaction Service</strong>
+                            <ul>
+                                <li>Manages virtual and real currency transactions</li>
+                                <li>Integrates with payment gateways</li>
+                                <li>Handles faction revenue share logic</li>
+                                <li>Implements wealth-adaptive pricing</li>
+                                <li>Enforces responsible gaming limits</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Game Logic Services</strong>
+                            <ul>
+                                <li>Separate instances for different game types (Roulette, Poker, Slots, etc.)</li>
+                                <li>Implements core game mechanics and rules</li>
+                                <li>Provides hooks for AI integration</li>
+                                <li>Supports dynamic rule modifications</li>
+                                <li>Ensures provably fair gameplay</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>AI Services Cluster</strong>
+                            <ul>
+                                <li><strong>Behavioral Analysis Service</strong>: Analyzes player behavior patterns</li>
+                                <li><strong>Economic Balancing Service</strong>: Manages district economies and faction control</li>
+                                <li><strong>Creative Content Service</strong>: Generates game assets and themes</li>
+                                <li><strong>Procedural Drama Engine</strong>: Creates narrative events and quests</li>
+                                <li><strong>Responsible Gaming AI</strong>: Monitors for problematic play patterns</li>
+                                <li><strong>AI Sentry</strong>: Detects fraud and anomalous behavior</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Community & Syndicate Service</strong>
+                            <ul>
+                                <li>Manages faction membership and district control</li>
+                                <li>Handles in-game chat and social features</li>
+                                <li>Implements NLP analysis for reputation scoring</li>
+                                <li>Coordinates syndicate activities and revenue sharing</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Provably Fair & Ledger Service</strong>
+                            <ul>
+                                <li>Generates and stores game outcome hashes</li>
+                                <li>Provides verification API for players</li>
+                                <li>Maintains immutable record on permissioned DLT</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>API Gateway</strong>
+                            <ul>
+                                <li>Manages external communication with clients</li>
+                                <li>Handles authentication and request routing</li>
+                                <li>Implements rate limiting and security measures</li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <h3>Data Infrastructure</h3>
+                    <ol>
+                        <li>
+                            <strong>Real-time Data Pipeline</strong>
+                            <ul>
+                                <li>High-throughput, low-latency streaming (Kafka/Pulsar)</li>
+                                <li>Processes player telemetry, game events, AI outputs, and transactions</li>
+                                <li>Enables real-time analytics and dynamic adjustments</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>AI Model Deployment</strong>
+                            <ul>
+                                <li>MLOps framework for training, versioning, and deploying AI models</li>
+                                <li>Scalable inference endpoints for real-time AI applications</li>
+                                <li>Monitoring and feedback loops for continuous improvement</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </section>
+
+                <section>
+                    <h2>AI Components</h2>
+
+                    <h3>Behavioral Layer</h3>
+                    <ul>
+                        <li>Transformer models for player behavior analysis</li>
+                        <li>Eye-tracking and expression analysis (with explicit consent)</li>
+                        <li>Pattern recognition for betting behaviors and play styles</li>
+                    </ul>
+
+                    <h3>Economic Layer</h3>
+                    <ul>
+                        <li>Multi-Agent Reinforcement Learning (MARL) for faction competition</li>
+                        <li>Dynamic adjustment of district economies and RTPs</li>
+                        <li>Balancing mechanisms for faction control</li>
+                    </ul>
+
+                    <h3>Creative Layer</h3>
+                    <ul>
+                        <li>Generative AI for visual assets (Stable Diffusion)</li>
+                        <li>Narrative generation (GPT-4)</li>
+                        <li>Player-voted content creation and deployment</li>
+                    </ul>
+
+                    <h3>Procedural Drama Engine</h3>
+                    <ul>
+                        <li>Reinforcement Learning for narrative event generation</li>
+                        <li>State machines for quest progression</li>
+                        <li>Dynamic event triggering based on player actions and faction status</li>
+                    </ul>
+
+                    <h3>Responsible Gaming AI</h3>
+                    <ul>
+                        <li>Fatigue detection through computer vision</li>
+                        <li>Dynamic loss ceiling enforcement</li>
+                        <li>Mood analysis through audio/visual inputs (with consent)</li>
+                        <li>Intervention mechanisms for at-risk players</li>
+                    </ul>
+
+                    <h3>AI Sentry</h3>
+                    <ul>
+                        <li>GAN-based anomaly detection for fraud prevention</li>
+                        <li>Pattern analysis for suspicious activities</li>
+                        <li>Real-time monitoring of transactions and gameplay</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Game Features</h2>
+
+                    <h3>Eclipse Roulette</h3>
+                    <ul>
+                        <li>Physics engine with visual chaos representation</li>
+                        <li>AI-predicted likely sections based on player patterns</li>
+                        <li>Maintains fair play standards while enhancing visual experience</li>
+                    </ul>
+
+                    <h3>Neural Hold'em</h3>
+                    <ul>
+                        <li>NPC behavior cloning from historical player data</li>
+                        <li>AI opponents with distinct playstyles</li>
+                        <li>Unlockable "ghost" AI opponents</li>
+                    </ul>
+
+                    <h3>Chaos Slots</h3>
+                    <ul>
+                        <li>AI-generated themes and visuals</li>
+                        <li>Mini-puzzle integration during bonus rounds</li>
+                        <li>Faction alliance rewards</li>
+                    </ul>
+
+                    <h3>Syndicate System</h3>
+                    <ul>
+                        <li>Group management and faction control</li>
+                        <li>Revenue sharing based on district control</li>
+                        <li>Collaborative quests and challenges</li>
+                    </ul>
+
+                    <h3>Dynamic Achievement System</h3>
+                    <ul>
+                        <li>Rule engine mapping event sequences to achievements</li>
+                        <li>1000+ possible achievements</li>
+                        <li>Progression tracking and rewards</li>
+                    </ul>
+
+                    <h3>Time-Locked Storylines</h3>
+                    <ul>
+                        <li>Multi-stage quests over extended periods</li>
+                        <li>Collective player action tracking</li>
+                        <li>Outcomes affecting district control and rules</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Security & Compliance</h2>
+
+                    <h3>Zero-Knowledge KYC</h3>
+                    <ul>
+                        <li>ZK-SNARKs/STARKs for identity verification</li>
+                        <li>Local proof generation with secure elements</li>
+                        <li>Minimal storage of identity data</li>
+                    </ul>
+
+                    <h3>Provably Fair 2.0</h3>
+                    <ul>
+                        <li>Server and client seed combination</li>
+                        <li>Hash verification system</li>
+                        <li>Immutable record on permissioned DLT</li>
+                    </ul>
+
+                    <h3>Jurisdiction-Specific AI</h3>
+                    <ul>
+                        <li>Configuration service for regulatory compliance</li>
+                        <li>Dynamic adjustment of game rules based on jurisdiction</li>
+                        <li>Comprehensive audit trails</li>
+                    </ul>
+
+                    <h3>Transparency Portal</h3>
+                    <ul>
+                        <li>NLP interface for querying game outcomes</li>
+                        <li>Explanations of odds calculations</li>
+                        <li>Access to historical game data</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Responsible Gaming Infrastructure</h2>
+
+                    <h3>Mood-Aware Limits</h3>
+                    <ul>
+                        <li>Vocal tone analysis for distress detection</li>
+                        <li>Mandatory cool-down periods</li>
+                        <li>Privacy-focused implementation</li>
+                    </ul>
+
+                    <h3>Sandbox Mode</h3>
+                    <ul>
+                        <li>Simulation environment with AI models</li>
+                        <li>Player-specific pattern mimicking</li>
+                        <li>Risk-free gameplay for education</li>
+                    </ul>
+
+                    <h3>Dynamic Loss Ceilings</h3>
+                    <ul>
+                        <li>Monitoring of loss velocity</li>
+                        <li>Temporary bet size reductions</li>
+                        <li>Configurable thresholds</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Monetization Features</h2>
+
+                    <h3>Faction Wars Pass</h3>
+                    <ul>
+                        <li>Subscription management</li>
+                        <li>Enhanced features for pass holders</li>
+                        <li>Integrated with User Profile/Entitlement system</li>
+                    </ul>
+
+                    <h3>Blueprint Market</h3>
+                    <ul>
+                        <li>UGC platform for slot themes</li>
+                        <li>Asset validation and integration</li>
+                        <li>Revenue sharing with creators</li>
+                    </ul>
+
+                    <h3>High-Stakes Timewarps</h3>
+                    <ul>
+                        <li>Game timer pausing functionality</li>
+                        <li>Tournament integrity management</li>
+                        <li>Premium feature implementation</li>
+                    </ul>
+
+                    <h3>Wealth-Adaptive Pricing</h3>
+                    <ul>
+                        <li>Dynamic pricing based on player metrics</li>
+                        <li>VIP tier adjustments</li>
+                        <li>30-day net win/loss calculations</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Implementation Priorities</h2>
+                    <ol>
+                        <li><strong>Security First</strong>: Rigorous security protocols from day one</li>
+                        <li><strong>Scalability</strong>: Horizontal scaling for high concurrency</li>
+                        <li><strong>Data Privacy & Consent</strong>: Robust consent mechanisms for sensitive data</li>
+                        <li><strong>Modularity & Testability</strong>: Independent deployment and testing</li>
+                        <li><strong>Regulatory Compliance</strong>: Embedded compliance checks and audit trails</li>
+                        <li><strong>Ethical AI</strong>: Continuous monitoring for bias and unintended consequences</li>
+                    </ol>
+                </section>
+
+                <section>
+                    <h2>Development Roadmap</h2>
+                    <ol>
+                        <li>Core services, data pipeline, and essential game logic (MVP)</li>
+                        <li>Basic AI features and initial game implementations</li>
+                        <li>Advanced AI features (PDE, behavioral analysis, content generation)</li>
+                        <li>Full feature set and optimization</li>
+                        <li>Scaling and performance tuning</li>
+                    </ol>
+                </section>
+
+                <div class="doc-navigation">
+                    <div class="doc-nav-next">
+                        <a href="microservices.html">Next: Microservices Architecture <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>NovaLux</h2>
+                    <span class="tagline">AI Casino</span>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Documentation</h3>
+                        <ul>
+                            <li><a href="system-overview.html">System Overview</a></li>
+                            <li><a href="microservices.html">Microservices</a></li>
+                            <li><a href="ai-components.html">AI Components</a></li>
+                            <li><a href="game-features.html">Game Features</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Features</h3>
+                        <ul>
+                            <li><a href="../index.html#games">Games</a></li>
+                            <li><a href="../index.html#ai">AI Systems</a></li>
+                            <li><a href="../index.html#architecture">Architecture</a></li>
+                            <li><a href="../index.html#roadmap">Roadmap</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NovaLux AI Casino. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

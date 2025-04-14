@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaLux AI Casino</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>NovaLux</h1>
+                <span class="tagline">AI Casino</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#architecture">Architecture</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#ai">AI Systems</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Welcome to NovaLux</h1>
+                <h2>The Future of AI-Native Gaming</h2>
+                <p>A revolutionary AI-driven casino platform with a cyberpunk metropolis where players compete for district control through AI-enhanced games.</p>
+                <div class="cta-buttons">
+                    <a href="#features" class="cta-button primary">Explore Features</a>
+                    <a href="#architecture" class="cta-button secondary">View Architecture</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="overview" class="section">
+        <div class="container">
+            <h2 class="section-title">Project Overview</h2>
+            <div class="overview-content">
+                <div class="overview-text">
+                    <p>NovaLux AI Casino is an ambitious platform that combines cutting-edge AI technologies with innovative game mechanics to create a unique gaming experience. The platform features a cyberpunk-themed virtual metropolis where players can join factions, compete for district control, and enjoy AI-enhanced casino games.</p>
+                    <p>Unlike conventional casino platforms, NovaLux is a self-evolving entertainment ecosystem where AI drives everything from game mechanics to narrative events, creating a dynamic and immersive experience that adapts to player behavior.</p>
+                </div>
+                <div class="overview-image">
+                    <div class="cyberpunk-card">
+                        <div class="card-glow"></div>
+                        <div class="card-content">
+                            <h3>NovaLux Metropolis</h3>
+                            <p>A living, breathing cyberpunk city where your actions shape the world around you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section alt-bg">
+        <div class="container">
+            <h2 class="section-title">Core Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-dice"></i></div>
+                    <h3>AI-Enhanced Games</h3>
+                    <ul>
+                        <li>Eclipse Roulette with visual chaos representation</li>
+                        <li>Neural Hold'em with AI opponents that adapt to player behaviors</li>
+                        <li>Chaos Slots with AI-generated themes and mini-puzzles</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-city"></i></div>
+                    <h3>Cyberpunk Metropolis</h3>
+                    <ul>
+                        <li>Dynamic district control influenced by player actions</li>
+                        <li>Faction-based competition with revenue sharing</li>
+                        <li>Procedurally generated narrative events and quests</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Advanced AI Systems</h3>
+                    <ul>
+                        <li>Behavioral analysis for personalized experiences</li>
+                        <li>Economic balancing for faction competition</li>
+                        <li>Creative content generation for fresh game assets</li>
+                        <li>Procedural drama engine for dynamic storytelling</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>Innovative Mechanics</h3>
+                    <ul>
+                        <li>Syndicate system for collaborative gameplay</li>
+                        <li>Dynamic achievement system with 1000+ possibilities</li>
+                        <li>Time-locked storylines with collective player actions</li>
+                        <li>Avatar tells reflecting player behavior patterns</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="architecture" class="section">
+        <div class="container">
+            <h2 class="section-title">Architecture</h2>
+            <p class="section-description">NovaLux is built on a microservices architecture deployed on Kubernetes, with a focus on scalability, resilience, and real-time performance.</p>
+            
+            <div class="architecture-diagram">
+                <div class="diagram-container">
+                    <pre class="ascii-diagram">
+┌─────────────────────────────────────────────────────────────────────────┐
+│                           Client Applications                            │
+└───────────────────────────────────┬─────────────────────────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                              API Gateway                                 │
+└───────────────────────────────────┬─────────────────────────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         Real-time Data Pipeline                          │
+│                        (Kafka/Pulsar Streaming)                          │
+└───────┬───────────┬───────────┬───────────┬───────────┬─────────────────┘
+        │           │           │           │           │
+        ▼           ▼           ▼           ▼           ▼
+┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐
+│   User    │ │  Wallet & │ │   Game    │ │    AI     │ │ Community │
+│ Auth &    │ │Transaction│ │  Logic    │ │ Services  │ │    &      │
+│ Profile   │ │ Service   │ │ Services  │ │  Cluster  │ │ Syndicate │
+└───────────┘ └───────────┘ └───────────┘ └───────────┘ └───────────┘
+                                                │
+                                                ▼
+                                          ┌───────────┐
+                                          │ AI Model  │
+                                          │Deployment │
+                                          │ (MLOps)   │
+                                          └───────────┘
+                    </pre>
+                </div>
+            </div>
+            
+            <div class="architecture-details">
+                <div class="architecture-section">
+                    <h3>Core Services</h3>
+                    <ul>
+                        <li>User Authentication & Profile Service</li>
+                        <li>Wallet & Transaction Service</li>
+                        <li>Game Logic Services (Roulette, Poker, Slots)</li>
+                        <li>AI Services Cluster</li>
+                        <li>Community & Syndicate Service</li>
+                        <li>Provably Fair & Ledger Service</li>
+                        <li>API Gateway</li>
+                    </ul>
+                </div>
+                <div class="architecture-section">
+                    <h3>AI Components</h3>
+                    <ul>
+                        <li>Behavioral Analysis System</li>
+                        <li>Economic Balancing System</li>
+                        <li>Creative Content Generation System</li>
+                        <li>Procedural Drama Engine</li>
+                        <li>Responsible Gaming AI</li>
+                        <li>AI Sentry (Fraud Detection)</li>
+                    </ul>
+                </div>
+                <div class="architecture-section">
+                    <h3>Data Infrastructure</h3>
+                    <ul>
+                        <li>Real-time data pipeline for event streaming</li>
+                        <li>MLOps framework for AI model deployment</li>
+                        <li>Comprehensive monitoring and observability</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="documentation-links">
+                <h3>Detailed Architecture Documentation</h3>
+                <div class="doc-links-grid">
+                    <a href="pages/system-overview.html" class="doc-link">
+                        <i class="fas fa-sitemap"></i>
+                        <span>System Overview</span>
+                    </a>
+                    <a href="pages/microservices.html" class="doc-link">
+                        <i class="fas fa-server"></i>
+                        <span>Microservices Architecture</span>
+                    </a>
+                    <a href="pages/ai-components.html" class="doc-link">
+                        <i class="fas fa-robot"></i>
+                        <span>AI Components</span>
+                    </a>
+                    <a href="pages/game-features.html" class="doc-link">
+                        <i class="fas fa-gamepad"></i>
+                        <span>Game Features</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="games" class="section alt-bg">
+        <div class="container">
+            <h2 class="section-title">Innovative Games</h2>
+            <div class="games-showcase">
+                <div class="game-card">
+                    <div class="game-image eclipse-roulette">
+                        <div class="game-overlay">
+                            <h3>Eclipse Roulette</h3>
+                        </div>
+                    </div>
+                    <div class="game-description">
+                        <h3>Eclipse Roulette</h3>
+                        <p>A physics-based roulette game with visual chaos representation and AI pattern visualization. The game maintains fair play standards while enhancing the visual experience with AI-predicted likely sections based on player patterns.</p>
+                        <ul class="game-features">
+                            <li>Real-time ball trajectory simulation</li>
+                            <li>Visual chaos representation</li>
+                            <li>Heat map visualization of historical outcomes</li>
+                            <li>Faction-specific betting options</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="game-card reverse">
+                    <div class="game-image neural-holdem">
+                        <div class="game-overlay">
+                            <h3>Neural Hold'em</h3>
+                        </div>
+                    </div>
+                    <div class="game-description">
+                        <h3>Neural Hold'em</h3>
+                        <p>A poker game with AI opponents that clone and adapt to player behaviors. The game features NPC behavior cloning from historical player data, creating a dynamic and challenging experience that evolves with your play style.</p>
+                        <ul class="game-features">
+                            <li>Behavior cloning from historical player data</li>
+                            <li>Personality model for consistent play styles</li>
+                            <li>Unlockable AI opponents with distinct styles</li>
+                            <li>Emotional AI for dealer responses</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <div class="game-image chaos-slots">
+                        <div class="game-overlay">
+                            <h3>Chaos Slots</h3>
+                        </div>
+                    </div>
+                    <div class="game-description">
+                        <h3>Chaos Slots</h3>
+                        <p>Slot machines with AI-generated themes, mini-puzzles, and faction alliance rewards. The game features weekly content updates with player voting, creating a constantly evolving experience with fresh visuals and narratives.</p>
+                        <ul class="game-features">
+                            <li>AI-generated visuals and narratives</li>
+                            <li>Player voting mechanism for new themes</li>
+                            <li>Skill-based challenges during bonus rounds</li>
+                            <li>Rewards tied to faction control</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai" class="section">
+        <div class="container">
+            <h2 class="section-title">AI Systems</h2>
+            <div class="ai-systems">
+                <div class="ai-system">
+                    <div class="ai-icon"><i class="fas fa-user-chart"></i></div>
+                    <div class="ai-content">
+                        <h3>Behavioral Analysis System</h3>
+                        <p>Analyzes player behavior to enhance gameplay, personalize experiences, and detect problematic patterns. The system uses transformer models for pattern recognition and computer vision for expression/eye tracking analysis (with explicit consent).</p>
+                    </div>
+                </div>
+                
+                <div class="ai-system">
+                    <div class="ai-icon"><i class="fas fa-balance-scale"></i></div>
+                    <div class="ai-content">
+                        <h3>Economic Balancing System</h3>
+                        <p>Maintains balanced gameplay economy across districts and factions while enabling dynamic competition. The system uses Multi-Agent Reinforcement Learning (MARL) for faction competition and dynamic adjustment of district economies.</p>
+                    </div>
+                </div>
+                
+                <div class="ai-system">
+                    <div class="ai-icon"><i class="fas fa-paint-brush"></i></div>
+                    <div class="ai-content">
+                        <h3>Creative Content Generation System</h3>
+                        <p>Generates fresh, engaging content for games including visuals, themes, and narratives. The system uses Stable Diffusion models for image creation and GPT-4 for theme and story creation, with player voting for content selection.</p>
+                    </div>
+                </div>
+                
+                <div class="ai-system">
+                    <div class="ai-icon"><i class="fas fa-book"></i></div>
+                    <div class="ai-content">
+                        <h3>Procedural Drama Engine</h3>
+                        <p>Creates dynamic narratives, events, and quests that respond to player actions and faction status. The system uses Reinforcement Learning for event selection and maintains a story graph for narrative construction.</p>
+                    </div>
+                </div>
+                
+                <div class="ai-system">
+                    <div class="ai-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="ai-content">
+                        <h3>Responsible Gaming AI</h3>
+                        <p>Protects players from harmful patterns and ensures ethical gameplay experiences. The system includes fatigue detection, problematic pattern recognition, and mood analysis through audio/visual inputs (with consent).</p>
+                    </div>
+                </div>
+                
+                <div class="ai-system">
+                    <div class="ai-icon"><i class="fas fa-user-shield"></i></div>
+                    <div class="ai-content">
+                        <h3>AI Sentry (Fraud Detection)</h3>
+                        <p>Detects and prevents fraudulent activities and suspicious behavior patterns. The system uses GAN-based models for pattern analysis and unsupervised learning for outlier detection in real-time transaction monitoring.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap" class="section alt-bg">
+        <div class="container">
+            <h2 class="section-title">Development Roadmap</h2>
+            <div class="roadmap">
+                <div class="roadmap-item">
+                    <div class="roadmap-marker">1</div>
+                    <div class="roadmap-content">
+                        <h3>Core Infrastructure</h3>
+                        <p>Core services, data pipeline, and essential game logic (MVP)</p>
+                        <ul>
+                            <li>Basic microservices architecture</li>
+                            <li>Data streaming infrastructure</li>
+                            <li>Initial game implementations</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="roadmap-item">
+                    <div class="roadmap-marker">2</div>
+                    <div class="roadmap-content">
+                        <h3>Basic AI Features</h3>
+                        <p>Initial AI systems and game enhancements</p>
+                        <ul>
+                            <li>Basic behavioral analysis</li>
+                            <li>Simple economic balancing</li>
+                            <li>Initial content generation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="roadmap-item">
+                    <div class="roadmap-marker">3</div>
+                    <div class="roadmap-content">
+                        <h3>Advanced AI Features</h3>
+                        <p>Sophisticated AI systems for enhanced gameplay</p>
+                        <ul>
+                            <li>Procedural Drama Engine</li>
+                            <li>Advanced behavioral analysis</li>
+                            <li>Enhanced content generation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="roadmap-item">
+                    <div class="roadmap-marker">4</div>
+                    <div class="roadmap-content">
+                        <h3>Full Feature Set</h3>
+                        <p>Complete implementation of all planned features</p>
+                        <ul>
+                            <li>Syndicate system</li>
+                            <li>Time-locked storylines</li>
+                            <li>Blueprint Market</li>
+                            <li>Faction Wars Pass</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="roadmap-item">
+                    <div class="roadmap-marker">5</div>
+                    <div class="roadmap-content">
+                        <h3>Optimization & Scaling</h3>
+                        <p>Performance tuning and infrastructure scaling</p>
+                        <ul>
+                            <li>Performance optimization</li>
+                            <li>Horizontal scaling</li>
+                            <li>Global deployment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>NovaLux</h2>
+                    <span class="tagline">AI Casino</span>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Documentation</h3>
+                        <ul>
+                            <li><a href="pages/system-overview.html">System Overview</a></li>
+                            <li><a href="pages/microservices.html">Microservices</a></li>
+                            <li><a href="pages/ai-components.html">AI Components</a></li>
+                            <li><a href="pages/game-features.html">Game Features</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Features</h3>
+                        <ul>
+                            <li><a href="#games">Games</a></li>
+                            <li><a href="#ai">AI Systems</a></li>
+                            <li><a href="#architecture">Architecture</a></li>
+                            <li><a href="#roadmap">Roadmap</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NovaLux AI Casino. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

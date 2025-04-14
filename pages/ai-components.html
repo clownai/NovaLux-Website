@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Components - NovaLux AI Casino</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/documentation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="documentation-page">
+    <header class="doc-header">
+        <nav>
+            <div class="logo">
+                <a href="../index.html">
+                    <h1>NovaLux</h1>
+                    <span class="tagline">AI Casino</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#overview">Overview</a></li>
+                <li><a href="../index.html#features">Features</a></li>
+                <li><a href="../index.html#architecture">Architecture</a></li>
+                <li><a href="../index.html#games">Games</a></li>
+                <li><a href="../index.html#ai">AI Systems</a></li>
+                <li><a href="../index.html#roadmap">Roadmap</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="documentation-container">
+        <aside class="doc-sidebar">
+            <div class="sidebar-header">
+                <h3>Documentation</h3>
+            </div>
+            <ul class="doc-nav">
+                <li><a href="system-overview.html">System Overview</a></li>
+                <li><a href="microservices.html">Microservices Architecture</a></li>
+                <li class="active"><a href="ai-components.html">AI Components</a></li>
+                <li><a href="game-features.html">Game Features</a></li>
+            </ul>
+        </aside>
+
+        <main class="doc-content">
+            <article>
+                <h1>NovaLux AI Casino - AI Components</h1>
+
+                <section>
+                    <h2>Introduction</h2>
+                    <p>Artificial Intelligence is at the core of the NovaLux AI Casino experience, transforming traditional casino games into dynamic, adaptive, and personalized entertainment. This document details the AI systems that power NovaLux, their architecture, capabilities, and integration with the platform.</p>
+                    
+                    <p>NovaLux employs a multi-layered AI approach, with specialized systems handling different aspects of the gaming experience, from player behavior analysis to content generation and economic balancing. These systems work together to create a cohesive, intelligent gaming environment that evolves with player interactions.</p>
+                </section>
+
+                <section>
+                    <h2>Behavioral Analysis System</h2>
+                    <p>The Behavioral Analysis System (BAS) analyzes player behavior to enhance gameplay, personalize experiences, and detect problematic patterns.</p>
+                    
+                    <h3>Architecture</h3>
+                    <ul>
+                        <li><strong>Data Collection Layer</strong>: Captures player actions, decisions, timing, and patterns</li>
+                        <li><strong>Feature Extraction</strong>: Transforms raw data into meaningful behavioral features</li>
+                        <li><strong>Pattern Recognition</strong>: Identifies recurring patterns and play styles</li>
+                        <li><strong>Classification Engine</strong>: Categorizes behaviors into defined player types</li>
+                        <li><strong>Recommendation System</strong>: Generates personalized experience suggestions</li>
+                    </ul>
+                    
+                    <h3>Key Technologies</h3>
+                    <ul>
+                        <li><strong>Transformer Models</strong>: For sequential pattern recognition in player actions</li>
+                        <li><strong>Computer Vision</strong>: For expression/eye tracking analysis (with explicit consent)</li>
+                        <li><strong>Clustering Algorithms</strong>: For player segmentation and style identification</li>
+                        <li><strong>Anomaly Detection</strong>: For identifying unusual behavior patterns</li>
+                    </ul>
+                    
+                    <h3>Capabilities</h3>
+                    <ul>
+                        <li><strong>Play Style Identification</strong>: Recognizes conservative, aggressive, pattern-based, or random play styles</li>
+                        <li><strong>Preference Mapping</strong>: Identifies game preferences, visual themes, and interaction patterns</li>
+                        <li><strong>Skill Assessment</strong>: Evaluates player skill level for appropriate challenge calibration</li>
+                        <li><strong>Fatigue Detection</strong>: Identifies signs of player fatigue through timing and decision quality</li>
+                        <li><strong>Avatar Tells</strong>: Generates subtle visual cues in player avatars reflecting behavior patterns</li>
+                    </ul>
+                    
+                    <h3>Integration Points</h3>
+                    <ul>
+                        <li>Feeds player profiles to Game Logic Services for personalized experiences</li>
+                        <li>Provides data to Responsible Gaming AI for risk assessment</li>
+                        <li>Informs Economic Balancing System about player segments and preferences</li>
+                        <li>Supplies behavioral data to Procedural Drama Engine for narrative personalization</li>
+                    </ul>
+                    
+                    <h3>Privacy and Consent</h3>
+                    <p>The Behavioral Analysis System operates under strict privacy guidelines:</p>
+                    <ul>
+                        <li>All sensitive analysis (visual, audio) requires explicit opt-in consent</li>
+                        <li>Players can view and delete their behavioral profile at any time</li>
+                        <li>Data is anonymized for aggregate analysis</li>
+                        <li>Clear explanations of data usage are provided before consent</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Economic Balancing System</h2>
+                    <p>The Economic Balancing System (EBS) maintains balanced gameplay economy across districts and factions while enabling dynamic competition.</p>
+                    
+                    <h3>Architecture</h3>
+                    <ul>
+                        <li><strong>Simulation Engine</strong>: Models district economies and faction interactions</li>
+                        <li><strong>Multi-Agent Environment</strong>: Represents factions as competing agents</li>
+                        <li><strong>Reward Distribution System</strong>: Manages revenue sharing and incentives</li>
+                        <li><strong>Balance Monitoring</strong>: Tracks economic metrics and faction power</li>
+                        <li><strong>Intervention System</strong>: Implements adjustments to maintain balance</li>
+                    </ul>
+                    
+                    <h3>Key Technologies</h3>
+                    <ul>
+                        <li><strong>Multi-Agent Reinforcement Learning (MARL)</strong>: For faction competition modeling</li>
+                        <li><strong>System Dynamics Modeling</strong>: For economic simulation</li>
+                        <li><strong>Game Theory Algorithms</strong>: For strategic balance assessment</li>
+                        <li><strong>Time Series Analysis</strong>: For trend prediction and intervention timing</li>
+                    </ul>
+                    
+                    <h3>Capabilities</h3>
+                    <ul>
+                        <li><strong>District Economy Simulation</strong>: Models resource flows, revenue generation, and value distribution</li>
+                        <li><strong>Faction Balance Monitoring</strong>: Tracks relative power, membership, and resource control</li>
+                        <li><strong>Dynamic RTP Adjustment</strong>: Modifies return-to-player rates based on district control</li>
+                        <li><strong>Reward Redistribution</strong>: Implements faction revenue sharing based on contribution</li>
+                        <li><strong>Comeback Mechanics</strong>: Creates opportunities for underdog factions to regain ground</li>
+                        <li><strong>Economic Forecasting</strong>: Predicts outcomes of current trends and potential interventions</li>
+                    </ul>
+                    
+                    <h3>Integration Points</h3>
+                    <ul>
+                        <li>Connects with Game Logic Services to adjust game parameters</li>
+                        <li>Interfaces with Wallet & Transaction Service for revenue distribution</li>
+                        <li>Provides economic state data to Procedural Drama Engine for narrative events</li>
+                        <li>Receives faction activity data from Community & Syndicate Service</li>
+                    </ul>
+                    
+                    <h3>Balance Mechanisms</h3>
+                    <p>The system employs several mechanisms to maintain economic balance:</p>
+                    <ul>
+                        <li><strong>Progressive Taxation</strong>: Higher revenue share requirements for dominant factions</li>
+                        <li><strong>Resource Scarcity</strong>: Limited high-value opportunities that rotate between districts</li>
+                        <li><strong>Diminishing Returns</strong>: Reduced benefits from controlling too many districts</li>
+                        <li><strong>Catch-up Mechanics</strong>: Temporary bonuses for underperforming factions</li>
+                        <li><strong>Alliance Incentives</strong>: Rewards for cooperation between smaller factions</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Creative Content Generation System</h2>
+                    <p>The Creative Content Generation System (CCGS) generates fresh, engaging content for games including visuals, themes, and narratives.</p>
+                    
+                    <h3>Architecture</h3>
+                    <ul>
+                        <li><strong>Visual Generation Engine</strong>: Creates images, animations, and visual effects</li>
+                        <li><strong>Narrative Generation</strong>: Produces storylines, character backgrounds, and dialogue</li>
+                        <li><strong>Theme Composition</strong>: Combines visual and narrative elements into cohesive themes</li>
+                        <li><strong>Player Voting System</strong>: Manages community input on content selection</li>
+                        <li><strong>Content Integration</strong>: Prepares assets for deployment in games</li>
+                    </ul>
+                    
+                    <h3>Key Technologies</h3>
+                    <ul>
+                        <li><strong>Stable Diffusion Models</strong>: For image creation and visual asset generation</li>
+                        <li><strong>GPT-4</strong>: For theme and story creation</li>
+                        <li><strong>Style Transfer</strong>: For maintaining visual consistency</li>
+                        <li><strong>Procedural Generation</strong>: For creating variations on base themes</li>
+                    </ul>
+                    
+                    <h3>Capabilities</h3>
+                    <ul>
+                        <li><strong>Slot Theme Generation</strong>: Creates complete visual and thematic packages for slot games</li>
+                        <li><strong>Character Creation</strong>: Generates dealer and NPC personalities and appearances</li>
+                        <li><strong>Environmental Design</strong>: Produces district visuals and atmospheric elements</li>
+                        <li><strong>Symbol Creation</strong>: Designs game symbols with appropriate visual weight and recognition</li>
+                        <li><strong>Animation Generation</strong>: Creates win celebrations and special effect sequences</li>
+                        <li><strong>Sound Design</strong>: Generates audio effects and ambient soundscapes</li>
+                    </ul>
+                    
+                    <h3>Content Creation Process</h3>
+                    <ol>
+                        <li><strong>Theme Proposal</strong>: System generates multiple theme concepts</li>
+                        <li><strong>Player Voting</strong>: Community votes on preferred themes</li>
+                        <li><strong>Asset Generation</strong>: Winning themes are expanded into complete asset packages</li>
+                        <li><strong>Quality Assurance</strong>: Human review for appropriateness and quality</li>
+                        <li><strong>Integration</strong>: Assets are deployed to game services</li>
+                        <li><strong>Feedback Loop</strong>: Usage data informs future generation parameters</li>
+                    </ol>
+                    
+                    <h3>Integration Points</h3>
+                    <ul>
+                        <li>Provides assets to Game Logic Services for implementation</li>
+                        <li>Connects with Community Service for voting mechanisms</li>
+                        <li>Coordinates with Procedural Drama Engine for narrative consistency</li>
+                        <li>Receives player preference data from Behavioral Analysis System</li>
+                    </ul>
+                    
+                    <h3>Content Moderation</h3>
+                    <p>All generated content passes through multiple layers of moderation:</p>
+                    <ul>
+                        <li>AI-based inappropriate content filtering</li>
+                        <li>Human review for quality and appropriateness</li>
+                        <li>Cultural sensitivity checking</li>
+                        <li>Intellectual property verification</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Procedural Drama Engine</h2>
+                    <p>The Procedural Drama Engine (PDE) creates dynamic narratives, events, and quests that respond to player actions and faction status.</p>
+                    
+                    <h3>Architecture</h3>
+                    <ul>
+                        <li><strong>Story Graph</strong>: Maintains narrative structure and possible paths</li>
+                        <li><strong>Event Generator</strong>: Creates narrative events based on world state</li>
+                        <li><strong>Quest System</strong>: Manages individual and collective player objectives</li>
+                        <li><strong>Character Manager</strong>: Tracks NPC personalities and relationships</li>
+                        <li><strong>World State Tracker</strong>: Monitors faction control and district status</li>
+                    </ul>
+                    
+                    <h3>Key Technologies</h3>
+                    <ul>
+                        <li><strong>Reinforcement Learning</strong>: For event selection and narrative pacing</li>
+                        <li><strong>Story Graphs</strong>: For narrative construction and path management</li>
+                        <li><strong>Natural Language Generation</strong>: For dialogue and descriptions</li>
+                        <li><strong>State Machines</strong>: For quest progression tracking</li>
+                    </ul>
+                    
+                    <h3>Capabilities</h3>
+                    <ul>
+                        <li><strong>Dynamic Events</strong>: Creates world events responding to faction actions</li>
+                        <li><strong>Personal Quests</strong>: Generates individualized objectives based on player history</li>
+                        <li><strong>Faction Storylines</strong>: Develops ongoing narratives for each faction</li>
+                        <li><strong>Time-Locked Stories</strong>: Creates multi-stage narratives that unfold over days or weeks</li>
+                        <li><strong>Adaptive Difficulty</strong>: Adjusts challenge levels based on player skill</li>
+                        <li><strong>Narrative Consequences</strong>: Ensures player actions have meaningful story impact</li>
+                    </ul>
+                    
+                    <h3>Narrative Structure</h3>
+                    <p>The PDE organizes narratives in a hierarchical structure:</p>
+                    <ul>
+                        <li><strong>Meta-Narrative</strong>: Overarching world story and major conflicts</li>
+                        <li><strong>Faction Arcs</strong>: Storylines specific to each faction</li>
+                        <li><strong>District Stories</strong>: Narratives tied to specific locations</li>
+                        <li><strong>Personal Quests</strong>: Individual player storylines</li>
+                        <li><strong>Daily Events</strong>: Short-term happenings and challenges</li>
+                    </ul>
+                    
+                    <h3>Integration Points</h3>
+                    <ul>
+                        <li>Provides quest data to Game Logic Services</li>
+                        <li>Receives faction status from Community & Syndicate Service</li>
+                        <li>Coordinates with Creative Content Generation for visual assets</li>
+                        <li>Uses player profiles from Behavioral Analysis for personalization</li>
+                    </ul>
+                    
+                    <h3>Player Impact</h3>
+                    <p>Player actions influence the narrative in several ways:</p>
+                    <ul>
+                        <li>Collective faction actions determine district control storylines</li>
+                        <li>Individual achievements unlock personal narrative branches</li>
+                        <li>Play style affects the tone and challenge of assigned quests</li>
+                        <li>Social connections influence available cooperative storylines</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Responsible Gaming AI</h2>
+                    <p>The Responsible Gaming AI (RGAI) protects players from harmful patterns and ensures ethical gameplay experiences.</p>
+                    
+                    <h3>Architecture</h3>
+                    <ul>
+                        <li><strong>Pattern Monitoring</strong>: Tracks play patterns for problematic behaviors</li>
+                        <li><strong>Risk Assessment</strong>: Evaluates player vulnerability and risk level</li>
+                        <li><strong>Intervention System</strong>: Implements appropriate protective measures</li>
+                        <li><strong>Consent Management</strong>: Handles player permissions for monitoring</li>
+                        <li><strong>Feedback Analysis</strong>: Evaluates effectiveness of interventions</li>
+                    </ul>
+                    
+                    <h3>Key Technologies</h3>
+                    <ul>
+                        <li><strong>Computer Vision</strong>: For fatigue detection (with consent)</li>
+                        <li><strong>Pattern Recognition</strong>: For problematic behavior identification</li>
+                        <li><strong>Natural Language Processing</strong>: For chat monitoring and sentiment analysis</li>
+                        <li><strong>Audio Analysis</strong>: For mood detection through vocal tone (with consent)</li>
+                    </ul>
+                    
+                    <h3>Capabilities</h3>
+                    <ul>
+                        <li><strong>Fatigue Detection</strong>: Identifies signs of player exhaustion</li>
+                        <li><strong>Loss Chasing Recognition</strong>: Detects attempts to recover losses through risky behavior</li>
+                        <li><strong>Spending Pattern Analysis</strong>: Identifies unusual or concerning transaction patterns</li>
+                        <li><strong>Time Management</strong>: Tracks session length and frequency</li>
+                        <li><strong>Mood Assessment</strong>: Evaluates emotional state through interaction patterns</li>
+                        <li><strong>Personalized Limits</strong>: Recommends appropriate limits based on play history</li>
+                    </ul>
+                    
+                    <h3>Intervention Mechanisms</h3>
+                    <p>The RGAI employs a graduated approach to player protection:</p>
+                    <ol>
+                        <li><strong>Subtle Nudges</strong>: Session time displays, reality checks</li>
+                        <li><strong>Informational Interventions</strong>: Personalized feedback on play patterns</li>
+                        <li><strong>Suggested Breaks</strong>: Recommendations to pause play</li>
+                        <li><strong>Narrative Interruptions</strong>: In-game story elements encouraging breaks</li>
+                        <li><strong>Dynamic Limits</strong>: Temporary adjustments to betting limits</li>
+                        <li><strong>Session Pauses</strong>: Mandatory cool-down periods</li>
+                    </ol>
+                    
+                    <h3>Integration Points</h3>
+                    <ul>
+                        <li>Connects with Wallet & Transaction Service for limit enforcement</li>
+                        <li>Receives behavioral data from Behavioral Analysis System</li>
+                        <li>Coordinates with Game Logic Services for intervention implementation</li>
+                        <li>Interfaces with User Profile Service for preference management</li>
+                    </ul>
+                    
+                    <h3>Privacy and Ethics</h3>
+                    <p>The RGAI operates under strict ethical guidelines:</p>
+                    <ul>
+                        <li>All monitoring beyond basic play patterns requires explicit consent</li>
+                        <li>Players can opt out of advanced monitoring while retaining basic protections</li>
+                        <li>Intervention data is not used for marketing or monetization</li>
+                        <li>Regular ethical reviews ensure system is helping, not manipulating</li>
+                        <li>Transparency in all protection mechanisms and their rationale</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>AI Sentry (Fraud Detection)</h2>
+                    <p>The AI Sentry detects and prevents fraudulent activities and suspicious behavior patterns.</p>
+                    
+                    <h3>Architecture</h3>
+                    <ul>
+                        <li><strong>Real-time Monitoring</strong>: Analyzes transactions and gameplay in real-time</li>
+                        <li><strong>Pattern Analysis</strong>: Identifies suspicious behavior patterns</li>
+                        <li><strong>Anomaly Detection</strong>: Flags unusual activities for review</li>
+                        <li><strong>Risk Scoring</strong>: Assigns risk levels to accounts and transactions</li>
+                        <li><strong>Investigation Tools</strong>: Provides detailed analysis for security team</li>
+                    </ul>
+                    
+                    <h3>Key Technologies</h3>
+                    <ul>
+                        <li><strong>GAN-based Models</strong>: For pattern analysis and anomaly detection</li>
+                        <li><strong>Unsupervised Learning</strong>: For identifying outlier behaviors</li>
+                        <li><strong>Network Analysis</strong>: For detecting collusion and related accounts</li>
+                        <li><strong>Behavioral Biometrics</strong>: For verifying user identity through interaction patterns</li>
+                    </ul>
+                    
+                    <h3>Capabilities</h3>
+                    <ul>
+                        <li><strong>Bot Detection</strong>: Identifies automated play through timing and pattern analysis</li>
+                        <li><strong>Collusion Detection</strong>: Recognizes coordinated play between accounts</li>
+                        <li><strong>Account Takeover Prevention</strong>: Detects unusual access patterns</li>
+                        <li><strong>Chip Dumping Detection</strong>: Identifies suspicious transfers between accounts</li>
+                        <li><strong>Advantage Play Monitoring</strong>: Recognizes sophisticated strategy patterns</li>
+                        <li><strong>Multi-accounting Detection</strong>: Identifies single users operating multiple accounts</li>
+                    </ul>
+                    
+                    <h3>Detection Process</h3>
+                    <ol>
+                        <li><strong>Real-time Monitoring</strong>: Continuous analysis of all platform activity</li>
+                        <li><strong>Risk Scoring</strong>: Assignment of risk scores to detected patterns</li>
+                        <li><strong>Threshold Triggering</strong>: Flagging of activities exceeding risk thresholds</li>
+                        <li><strong>Automated Response</strong>: Immediate actions for high-risk activities</li>
+                        <li><strong>Human Review</strong>: Security team investigation of flagged activities</li>
+                        <li><strong>Resolution</strong>: Implementation of appropriate measures</li>
+                    </ol>
+                    
+                    <h3>Integration Points</h3>
+                    <ul>
+                        <li>Monitors transactions through Wallet & Transaction Service</li>
+                        <li>Analyzes gameplay via Game Logic Services</li>
+                        <li>Interfaces with User Authentication for access monitoring</li>
+                        <li>Coordinates with Provably Fair Service for outcome verification</li>
+                    </ul>
+                    
+                    <h3>False Positive Management</h3>
+                    <p>The system employs several strategies to minimize false positives:</p>
+                    <ul>
+                        <li>Multi-factor risk scoring requiring multiple indicators</li>
+                        <li>Graduated response based on risk level and confidence</li>
+                        <li>Learning from resolution outcomes to improve accuracy</li>
+                        <li>Human review before severe actions are taken</li>
+                        <li>Clear appeal process for affected players</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>AI Model Management</h2>
+                    <p>NovaLux employs a comprehensive MLOps approach to manage the lifecycle of all AI models in the platform.</p>
+                    
+                    <h3>Model Development Lifecycle</h3>
+                    <ol>
+                        <li><strong>Data Collection</strong>: Gathering and preparation of training data</li>
+                        <li><strong>Model Training</strong>: Development of initial models</li>
+                        <li><strong>Evaluation</strong>: Testing against performance metrics</li>
+                        <li><strong>Validation</strong>: Verification of ethical compliance and bias testing</li>
+                        <li><strong>Deployment</strong>: Controlled rollout to production</li>
+                        <li><strong>Monitoring</strong>: Ongoing performance and drift detection</li>
+                        <li><strong>Retraining</strong>: Regular updates with new data</li>
+                    </ol>
+                    
+                    <h3>Deployment Strategy</h3>
+                    <ul>
+                        <li><strong>Canary Deployments</strong>: Limited rollout to subset of users</li>
+                        <li><strong>A/B Testing</strong>: Comparative testing of model versions</li>
+                        <li><strong>Shadow Mode</strong>: Running new models alongside existing ones</li>
+                        <li><strong>Gradual Rollout</strong>: Incremental increase in traffic to new models</li>
+                        <li><strong>Automated Rollback</strong>: Immediate reversion if issues detected</li>
+                    </ul>
+                    
+                    <h3>Model Monitoring</h3>
+                    <ul>
+                        <li><strong>Performance Metrics</strong>: Tracking accuracy, latency, and other KPIs</li>
+                        <li><strong>Drift Detection</strong>: Identifying changes in data patterns</li>
+                        <li><strong>Bias Monitoring</strong>: Continuous checking for unfair outcomes</li>
+                        <li><strong>Resource Utilization</strong>: Tracking computational efficiency</li>
+                        <li><strong>User Feedback</strong>: Collecting and analyzing player responses</li>
+                    </ul>
+                    
+                    <h3>Ethical AI Governance</h3>
+                    <p>NovaLux maintains strict ethical standards for all AI systems:</p>
+                    <ul>
+                        <li>Regular bias audits across all models</li>
+                        <li>Transparency in AI-driven decisions affecting players</li>
+                        <li>Human oversight of critical AI functions</li>
+                        <li>Clear documentation of model limitations and assumptions</li>
+                        <li>External ethical review of high-impact systems</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>AI Integration Architecture</h2>
+                    <p>The AI components are integrated through a layered architecture that enables coordination while maintaining separation of concerns.</p>
+                    
+                    <h3>Integration Layers</h3>
+                    <ul>
+                        <li><strong>Data Collection Layer</strong>: Gathers inputs from various platform services</li>
+                        <li><strong>Feature Processing Layer</strong>: Transforms raw data into model-ready features</li>
+                        <li><strong>Model Serving Layer</strong>: Provides inference endpoints for AI models</li>
+                        <li><strong>Orchestration Layer</strong>: Coordinates interactions between AI systems</li>
+                        <li><strong>Integration Layer</strong>: Connects AI outputs to platform services</li>
+                    </ul>
+                    
+                    <h3>Cross-System Coordination</h3>
+                    <p>AI systems coordinate through several mechanisms:</p>
+                    <ul>
+                        <li><strong>Event Streaming</strong>: Asynchronous communication via Kafka/Pulsar</li>
+                        <li><strong>Shared Feature Store</strong>: Common repository of processed features</li>
+                        <li><strong>AI Service Registry</strong>: Discovery mechanism for available AI capabilities</li>
+                        <li><strong>Coordination Service</strong>: Manages conflicts and priorities between systems</li>
+                        <li><strong>Feedback Loops</strong>: Structured sharing of outcomes and results</li>
+                    </ul>
+                    
+                    <h3>Technical Implementation</h3>
+                    <ul>
+                        <li><strong>Model Serving</strong>: TensorFlow Serving, ONNX Runtime, Triton Inference Server</li>
+                        <li><strong>Feature Store</strong>: Feast for feature management and serving</li>
+                        <li><strong>Orchestration</strong>: Kubeflow Pipelines for workflow management</li>
+                        <li><strong>Monitoring</strong>: Prometheus, Grafana, and custom ML monitoring tools</li>
+                        <li><strong>Experiment Tracking</strong>: MLflow for model versioning and experiment tracking</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Future AI Roadmap</h2>
+                    <p>NovaLux has an ambitious roadmap for AI development and enhancement:</p>
+                    
+                    <h3>Near-Term Enhancements</h3>
+                    <ul>
+                        <li>Enhanced personalization through deeper behavioral analysis</li>
+                        <li>Improved content generation with higher visual fidelity</li>
+                        <li>More sophisticated economic modeling for faction dynamics</li>
+                        <li>Advanced narrative branching in the Procedural Drama Engine</li>
+                        <li>Enhanced responsible gaming features with better intervention timing</li>
+                    </ul>
+                    
+                    <h3>Medium-Term Innovations</h3>
+                    <ul>
+                        <li>Multi-modal AI for integrated visual, audio, and text analysis</li>
+                        <li>Advanced NPC personalities with memory and relationship modeling</li>
+                        <li>Collaborative AI systems that learn from player creativity</li>
+                        <li>Enhanced explainability for all AI-driven decisions</li>
+                        <li>Cross-game AI that maintains player context across experiences</li>
+                    </ul>
+                    
+                    <h3>Long-Term Vision</h3>
+                    <ul>
+                        <li>Truly adaptive game mechanics that evolve based on collective play</li>
+                        <li>Seamless integration of player-created content with AI-generated worlds</li>
+                        <li>Persistent AI characters with long-term memory and development</li>
+                        <li>Emergent narrative systems that create unique storylines without predefined paths</li>
+                        <li>AI-driven game design that creates entirely new game mechanics</li>
+                    </ul>
+                </section>
+
+                <div class="doc-navigation">
+                    <div class="doc-nav-prev">
+                        <a href="microservices.html"><i class="fas fa-arrow-left"></i> Previous: Microservices Architecture</a>
+                    </div>
+                    <div class="doc-nav-next">
+                        <a href="game-features.html">Next: Game Features <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>NovaLux</h2>
+                    <span class="tagline">AI Casino</span>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Documentation</h3>
+                        <ul>
+                            <li><a href="system-overview.html">System Overview</a></li>
+                            <li><a href="microservices.html">Microservices</a></li>
+                            <li><a href="ai-components.html">AI Components</a></li>
+                            <li><a href="game-features.html">Game Features</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Features</h3>
+                        <ul>
+                            <li><a href="../index.html#games">Games</a></li>
+                            <li><a href="../index.html#ai">AI Systems</a></li>
+                            <li><a href="../index.html#architecture">Architecture</a></li>
+                            <li><a href="../index.html#roadmap">Roadmap</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NovaLux AI Casino. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

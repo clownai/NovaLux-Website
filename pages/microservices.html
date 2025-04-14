@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microservices Architecture - NovaLux AI Casino</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/documentation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="documentation-page">
+    <header class="doc-header">
+        <nav>
+            <div class="logo">
+                <a href="../index.html">
+                    <h1>NovaLux</h1>
+                    <span class="tagline">AI Casino</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#overview">Overview</a></li>
+                <li><a href="../index.html#features">Features</a></li>
+                <li><a href="../index.html#architecture">Architecture</a></li>
+                <li><a href="../index.html#games">Games</a></li>
+                <li><a href="../index.html#ai">AI Systems</a></li>
+                <li><a href="../index.html#roadmap">Roadmap</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="documentation-container">
+        <aside class="doc-sidebar">
+            <div class="sidebar-header">
+                <h3>Documentation</h3>
+            </div>
+            <ul class="doc-nav">
+                <li><a href="system-overview.html">System Overview</a></li>
+                <li class="active"><a href="microservices.html">Microservices Architecture</a></li>
+                <li><a href="ai-components.html">AI Components</a></li>
+                <li><a href="game-features.html">Game Features</a></li>
+            </ul>
+        </aside>
+
+        <main class="doc-content">
+            <article>
+                <h1>NovaLux AI Casino - Microservices Architecture</h1>
+
+                <section>
+                    <h2>Introduction</h2>
+                    <p>The NovaLux AI Casino platform is built on a robust microservices architecture that enables scalability, resilience, and rapid feature development. This document details the individual microservices that make up the platform, their responsibilities, and how they interact to create the complete NovaLux experience.</p>
+                </section>
+
+                <section>
+                    <h2>Architecture Overview</h2>
+                    <p>NovaLux employs a cloud-native microservices architecture deployed on Kubernetes. Services communicate primarily through asynchronous event streaming via Kafka/Pulsar, with synchronous REST APIs for direct interactions. This approach allows for independent scaling, deployment, and resilience of each component.</p>
+
+                    <h3>Key Architectural Principles</h3>
+                    <ul>
+                        <li><strong>Service Autonomy</strong>: Each service owns its data and business logic</li>
+                        <li><strong>Event-Driven Communication</strong>: Services publish events that others can subscribe to</li>
+                        <li><strong>Polyglot Persistence</strong>: Each service uses the most appropriate database technology</li>
+                        <li><strong>API Gateway Pattern</strong>: Centralized entry point for client applications</li>
+                        <li><strong>Circuit Breaker Pattern</strong>: Prevents cascading failures across services</li>
+                        <li><strong>CQRS</strong>: Separation of command and query responsibilities where appropriate</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Core Services</h2>
+
+                    <h3>1. User Authentication & Profile Service</h3>
+                    <p>Manages user identity, authentication, and profile data across the platform.</p>
+                    
+                    <h4>Responsibilities:</h4>
+                    <ul>
+                        <li>User registration and account management</li>
+                        <li>Authentication and authorization</li>
+                        <li>Profile data storage and retrieval</li>
+                        <li>Avatar customization and management</li>
+                        <li>Achievement tracking and badges</li>
+                        <li>Zero-Knowledge KYC verification</li>
+                    </ul>
+                    
+                    <h4>Key APIs:</h4>
+                    <div class="code-block">
+<pre>
+POST /api/users/register           # Create new user account
+POST /api/auth/login               # Authenticate user
+GET  /api/users/{id}               # Get user profile
+PUT  /api/users/{id}               # Update user profile
+POST /api/users/{id}/avatar        # Update user avatar
+GET  /api/users/{id}/achievements  # Get user achievements
+POST /api/kyc/verify               # Submit KYC verification
+</pre>
+                    </div>
+                    
+                    <h4>Data Store:</h4>
+                    <ul>
+                        <li>PostgreSQL for relational user data</li>
+                        <li>Redis for session management</li>
+                        <li>Secure vault for sensitive KYC data</li>
+                    </ul>
+                    
+                    <h4>Events Published:</h4>
+                    <ul>
+                        <li>user.registered</li>
+                        <li>user.profile.updated</li>
+                        <li>user.achievement.unlocked</li>
+                        <li>user.kyc.verified</li>
+                    </ul>
+                    
+                    <h4>Events Consumed:</h4>
+                    <ul>
+                        <li>game.achievement.triggered</li>
+                        <li>faction.status.updated</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>2. Wallet & Transaction Service</h3>
+                    <p>Manages all financial transactions, balances, and payment processing within the platform.</p>
+                    
+                    <h4>Responsibilities:</h4>
+                    <ul>
+                        <li>Virtual currency management</li>
+                        <li>Real money transaction processing</li>
+                        <li>Payment gateway integration</li>
+                        <li>Faction revenue sharing</li>
+                        <li>Wealth-adaptive pricing</li>
+                        <li>Responsible gaming limits enforcement</li>
+                        <li>Transaction history and reporting</li>
+                    </ul>
+                    
+                    <h4>Key APIs:</h4>
+                    <div class="code-block">
+<pre>
+GET  /api/wallets/{userId}                # Get wallet balance
+POST /api/transactions/deposit            # Process deposit
+POST /api/transactions/withdraw           # Process withdrawal
+POST /api/transactions/transfer           # Transfer between users
+GET  /api/transactions/history/{userId}   # Get transaction history
+POST /api/pricing/calculate               # Calculate wealth-adaptive price
+GET  /api/limits/{userId}                 # Get user gaming limits
+PUT  /api/limits/{userId}                 # Update user gaming limits
+</pre>
+                    </div>
+                    
+                    <h4>Data Store:</h4>
+                    <ul>
+                        <li>PostgreSQL with transaction isolation for financial data</li>
+                        <li>Ledger-based architecture for transaction history</li>
+                        <li>Redis for caching and rate limiting</li>
+                    </ul>
+                    
+                    <h4>Events Published:</h4>
+                    <ul>
+                        <li>wallet.funded</li>
+                        <li>wallet.withdrawn</li>
+                        <li>transaction.completed</li>
+                        <li>limit.reached</li>
+                        <li>revenue.shared</li>
+                    </ul>
+                    
+                    <h4>Events Consumed:</h4>
+                    <ul>
+                        <li>game.bet.placed</li>
+                        <li>game.win.awarded</li>
+                        <li>faction.control.updated</li>
+                        <li>user.kyc.verified</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>3. Game Logic Services</h3>
+                    <p>A collection of services that implement the core game mechanics for different game types.</p>
+                    
+                    <h4>3.1 Eclipse Roulette Service</h4>
+                    <h5>Responsibilities:</h5>
+                    <ul>
+                        <li>Roulette game mechanics and rules</li>
+                        <li>Physics-based ball trajectory simulation</li>
+                        <li>Visual chaos representation</li>
+                        <li>Betting options and payouts</li>
+                        <li>Provably fair outcome generation</li>
+                    </ul>
+                    
+                    <h5>Key APIs:</h5>
+                    <div class="code-block">
+<pre>
+POST /api/roulette/games                  # Create new game
+POST /api/roulette/games/{id}/bets        # Place bet
+GET  /api/roulette/games/{id}             # Get game state
+POST /api/roulette/games/{id}/spin        # Spin the wheel
+GET  /api/roulette/games/{id}/result      # Get game result
+GET  /api/roulette/history/{userId}       # Get player history
+</pre>
+                    </div>
+                    
+                    <h4>3.2 Neural Hold'em Service</h4>
+                    <h5>Responsibilities:</h5>
+                    <ul>
+                        <li>Poker game mechanics and rules</li>
+                        <li>AI opponent behavior management</li>
+                        <li>Hand evaluation and ranking</li>
+                        <li>Betting rounds and pot management</li>
+                        <li>Tournament structure and progression</li>
+                    </ul>
+                    
+                    <h5>Key APIs:</h5>
+                    <div class="code-block">
+<pre>
+POST /api/poker/tables                    # Create new table
+POST /api/poker/tables/{id}/join          # Join table
+POST /api/poker/tables/{id}/bet           # Place bet
+POST /api/poker/tables/{id}/action        # Take action (call/fold/raise)
+GET  /api/poker/tables/{id}               # Get table state
+GET  /api/poker/history/{userId}          # Get player history
+GET  /api/poker/opponents                 # Get available AI opponents
+</pre>
+                    </div>
+                    
+                    <h4>3.3 Chaos Slots Service</h4>
+                    <h5>Responsibilities:</h5>
+                    <ul>
+                        <li>Slot game mechanics and rules</li>
+                        <li>Dynamic theme management</li>
+                        <li>Symbol generation and evaluation</li>
+                        <li>Bonus round mini-puzzles</li>
+                        <li>Faction-specific rewards</li>
+                    </ul>
+                    
+                    <h5>Key APIs:</h5>
+                    <div class="code-block">
+<pre>
+GET  /api/slots/themes                    # Get available themes
+POST /api/slots/games                     # Create new game
+POST /api/slots/games/{id}/spin           # Spin the reels
+GET  /api/slots/games/{id}/result         # Get spin result
+POST /api/slots/games/{id}/puzzle         # Submit puzzle solution
+GET  /api/slots/history/{userId}          # Get player history
+</pre>
+                    </div>
+                    
+                    <h4>Data Store:</h4>
+                    <ul>
+                        <li>MongoDB for game state and history</li>
+                        <li>Redis for real-time game data and caching</li>
+                        <li>Time-series database for analytics</li>
+                    </ul>
+                    
+                    <h4>Events Published:</h4>
+                    <ul>
+                        <li>game.started</li>
+                        <li>game.bet.placed</li>
+                        <li>game.action.taken</li>
+                        <li>game.result.determined</li>
+                        <li>game.win.awarded</li>
+                        <li>game.achievement.triggered</li>
+                    </ul>
+                    
+                    <h4>Events Consumed:</h4>
+                    <ul>
+                        <li>wallet.funded</li>
+                        <li>ai.model.updated</li>
+                        <li>content.theme.generated</li>
+                        <li>faction.control.updated</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>4. AI Services Cluster</h3>
+                    <p>A collection of specialized AI services that enhance the gaming experience through various intelligent capabilities.</p>
+                    
+                    <h4>4.1 Behavioral Analysis Service</h4>
+                    <h5>Responsibilities:</h5>
+                    <ul>
+                        <li>Player behavior pattern recognition</li>
+                        <li>Play style classification</li>
+                        <li>Personalization recommendations</li>
+                        <li>Risk pattern detection</li>
+                        <li>Computer vision analysis (with consent)</li>
+                    </ul>
+                    
+                    <h5>Key APIs:</h5>
+                    <div class="code-block">
+<pre>
+POST /api/behavior/analyze                # Analyze player behavior
+GET  /api/behavior/profile/{userId}       # Get behavior profile
+POST /api/behavior/vision/analyze         # Analyze visual input (with consent)
+GET  /api/behavior/recommendations/{userId} # Get personalized recommendations
+</pre>
+                    </div>
+                    
+                    <h4>4.2 Economic Balancing Service</h4>
+                    <h5>Responsibilities:</h5>
+                    <ul>
+                        <li>District economy simulation</li>
+                        <li>Faction balance monitoring</li>
+                        <li>Dynamic adjustment of rewards</li>
+                        <li>Multi-agent reinforcement learning</li>
+                        <li>Economic forecasting</li>
+                    </ul>
+                    
+                    <h5>Key APIs:</h5>
+                    <div class="code-block">
+<pre>
+GET  /api/economy/districts               # Get district economic data
+GET  /api/economy/factions                # Get faction balance data
+POST /api/economy/simulate                # Run economic simulation
+GET  /api/economy/forecast                # Get economic forecast
+POST /api/economy/adjust                  # Apply economic adjustment
+</pre>
+                    </div>
+                    
+                    <h4>4.3 Creative Content Generation Service</h4>
+                    <h5>Responsibilities:</h5>
+                    <ul>
+                        <li>Slot theme generation</li>
+                        <li>Visual asset creation</li>
+                        <li>Narrative content generation</li>
+                        <li>Player voting management</li>
+                        <li>Content moderation</li>
+                    </ul>
+                    
+                    <h5>Key APIs:</h5>
+                    <div class="code-block">
+<pre>
+POST /api/content/generate/theme          # Generate slot theme
+POST /api/content/generate/visual         # Generate visual asset
+POST /api/content/generate/narrative      # Generate narrative content
+GET  /api/content/voting/active           # Get active voting sessions
+POST /api/content/voting/vote             # Submit content vote
+</pre>
+                    </div>
+                    
+                    <h4>4.4 Procedural Drama Engine</h4>
+                    <h5>Responsibilities:</h5>
+                    <ul>
+                        <li>Narrative event generation</li>
+                        <li>Quest creation and management</li>
+                        <li>Story graph maintenance</li>
+                        <li>Player action response</li>
+                        <li>Faction narrative integration</li>
+                    </ul>
+                    
+                    <h5>Key APIs:</h5>
+                    <div class="code-block">
+<pre>
+GET  /api/narrative/events                # Get active narrative events
+GET  /api/narrative/quests/{userId}       # Get available quests
+POST /api/narrative/quests/{id}/progress  # Update quest progress
+POST /api/narrative/generate/event        # Generate narrative event
+GET  /api/narrative/story/graph           # Get story graph state
+</pre>
+                    </div>
+                    
+                    <h4>4.5 Responsible Gaming AI</h4>
+                    <h5>Responsibilities:</h5>
+                    <ul>
+                        <li>Problematic play pattern detection</li>
+                        <li>Fatigue monitoring (with consent)</li>
+                        <li>Intervention recommendation</li>
+                        <li>Mood analysis (with consent)</li>
+                        <li>Dynamic limit adjustment</li>
+                    </ul>
+                    
+                    <h5>Key APIs:</h5>
+                    <div class="code-block">
+<pre>
+POST /api/responsible/analyze             # Analyze play patterns
+POST /api/responsible/fatigue/detect      # Detect player fatigue
+GET  /api/responsible/limits/{userId}     # Get recommended limits
+POST /api/responsible/intervention        # Trigger intervention
+POST /api/responsible/mood/analyze        # Analyze mood (with consent)
+</pre>
+                    </div>
+                    
+                    <h4>4.6 AI Sentry (Fraud Detection)</h4>
+                    <h5>Responsibilities:</h5>
+                    <ul>
+                        <li>Fraud pattern detection</li>
+                        <li>Anomaly detection in transactions</li>
+                        <li>Bot detection</li>
+                        <li>Collusion detection</li>
+                        <li>Security threat monitoring</li>
+                    </ul>
+                    
+                    <h5>Key APIs:</h5>
+                    <div class="code-block">
+<pre>
+POST /api/sentry/analyze/transaction      # Analyze transaction
+POST /api/sentry/analyze/behavior         # Analyze behavior for fraud
+GET  /api/sentry/threats                  # Get active security threats
+POST /api/sentry/report                   # Report suspicious activity
+</pre>
+                    </div>
+                    
+                    <h4>Data Store:</h4>
+                    <ul>
+                        <li>Vector database for embeddings and similarity search</li>
+                        <li>Time-series database for behavioral data</li>
+                        <li>Graph database for narrative and relationship modeling</li>
+                        <li>Object storage for AI models and assets</li>
+                    </ul>
+                    
+                    <h4>Events Published:</h4>
+                    <ul>
+                        <li>ai.behavior.analyzed</li>
+                        <li>ai.economy.adjusted</li>
+                        <li>ai.content.generated</li>
+                        <li>ai.narrative.created</li>
+                        <li>ai.responsible.intervention</li>
+                        <li>ai.sentry.alert</li>
+                    </ul>
+                    
+                    <h4>Events Consumed:</h4>
+                    <ul>
+                        <li>game.action.taken</li>
+                        <li>game.result.determined</li>
+                        <li>user.profile.updated</li>
+                        <li>transaction.completed</li>
+                        <li>faction.control.updated</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>5. Community & Syndicate Service</h3>
+                    <p>Manages social features, faction membership, and district control mechanics.</p>
+                    
+                    <h4>Responsibilities:</h4>
+                    <ul>
+                        <li>Faction membership management</li>
+                        <li>District control tracking</li>
+                        <li>Syndicate formation and management</li>
+                        <li>In-game chat and messaging</li>
+                        <li>Social features and friend lists</li>
+                        <li>Reputation scoring</li>
+                    </ul>
+                    
+                    <h4>Key APIs:</h4>
+                    <div class="code-block">
+<pre>
+GET  /api/factions                        # Get all factions
+POST /api/factions/{id}/join              # Join faction
+GET  /api/districts                       # Get district status
+GET  /api/districts/{id}/control          # Get district control data
+POST /api/syndicates                      # Create syndicate
+GET  /api/syndicates/{userId}             # Get user's syndicates
+POST /api/chat/messages                   # Send chat message
+GET  /api/chat/history/{channelId}        # Get chat history
+</pre>
+                    </div>
+                    
+                    <h4>Data Store:</h4>
+                    <ul>
+                        <li>PostgreSQL for faction and district data</li>
+                        <li>MongoDB for syndicate configurations</li>
+                        <li>Redis for real-time chat</li>
+                        <li>Graph database for social connections</li>
+                    </ul>
+                    
+                    <h4>Events Published:</h4>
+                    <ul>
+                        <li>faction.joined</li>
+                        <li>faction.control.updated</li>
+                        <li>syndicate.created</li>
+                        <li>syndicate.member.added</li>
+                        <li>chat.message.sent</li>
+                    </ul>
+                    
+                    <h4>Events Consumed:</h4>
+                    <ul>
+                        <li>user.registered</li>
+                        <li>game.result.determined</li>
+                        <li>ai.economy.adjusted</li>
+                        <li>ai.narrative.created</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>6. Provably Fair & Ledger Service</h3>
+                    <p>Ensures game integrity and provides transparency through cryptographic verification.</p>
+                    
+                    <h4>Responsibilities:</h4>
+                    <ul>
+                        <li>Seed generation and management</li>
+                        <li>Outcome verification</li>
+                        <li>Immutable ledger maintenance</li>
+                        <li>Verification API for players</li>
+                        <li>Audit trail generation</li>
+                    </ul>
+                    
+                    <h4>Key APIs:</h4>
+                    <div class="code-block">
+<pre>
+POST /api/fairness/seeds                  # Generate seed pair
+GET  /api/fairness/verify/{gameId}        # Verify game outcome
+GET  /api/fairness/history/{userId}       # Get verification history
+GET  /api/ledger/transactions/{id}        # Get transaction from ledger
+GET  /api/ledger/proof/{transactionId}    # Get cryptographic proof
+</pre>
+                    </div>
+                    
+                    <h4>Data Store:</h4>
+                    <ul>
+                        <li>Immutable ledger database</li>
+                        <li>Secure key storage</li>
+                        <li>Distributed ledger technology (permissioned)</li>
+                    </ul>
+                    
+                    <h4>Events Published:</h4>
+                    <ul>
+                        <li>fairness.seed.generated</li>
+                        <li>fairness.outcome.verified</li>
+                        <li>ledger.transaction.recorded</li>
+                    </ul>
+                    
+                    <h4>Events Consumed:</h4>
+                    <ul>
+                        <li>game.started</li>
+                        <li>game.result.determined</li>
+                        <li>transaction.completed</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>7. API Gateway</h3>
+                    <p>Serves as the entry point for all client applications, handling routing, authentication, and request management.</p>
+                    
+                    <h4>Responsibilities:</h4>
+                    <ul>
+                        <li>Request routing to appropriate services</li>
+                        <li>Authentication and authorization</li>
+                        <li>Rate limiting and throttling</li>
+                        <li>Request/response transformation</li>
+                        <li>API documentation and discovery</li>
+                        <li>Analytics and monitoring</li>
+                    </ul>
+                    
+                    <h4>Key Features:</h4>
+                    <ul>
+                        <li>JWT authentication</li>
+                        <li>OAuth2 integration</li>
+                        <li>Circuit breaker implementation</li>
+                        <li>Request logging and tracing</li>
+                        <li>CORS support</li>
+                        <li>API versioning</li>
+                    </ul>
+                    
+                    <h4>Data Store:</h4>
+                    <ul>
+                        <li>Redis for rate limiting and caching</li>
+                        <li>Elasticsearch for request logging</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Infrastructure Services</h2>
+
+                    <h3>1. Real-time Data Pipeline</h3>
+                    <p>Provides event streaming capabilities for asynchronous communication between services.</p>
+                    
+                    <h4>Components:</h4>
+                    <ul>
+                        <li>Kafka/Pulsar clusters for event streaming</li>
+                        <li>Schema registry for event format management</li>
+                        <li>Stream processing for real-time analytics</li>
+                        <li>Connectors for database integration</li>
+                    </ul>
+                    
+                    <h4>Key Features:</h4>
+                    <ul>
+                        <li>High throughput message delivery</li>
+                        <li>Exactly-once semantics</li>
+                        <li>Topic partitioning for scalability</li>
+                        <li>Message replay capabilities</li>
+                        <li>Dead letter queues for error handling</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>2. AI Model Deployment (MLOps)</h3>
+                    <p>Manages the lifecycle of AI models from training to deployment and monitoring.</p>
+                    
+                    <h4>Components:</h4>
+                    <ul>
+                        <li>Model registry for versioning</li>
+                        <li>Training pipeline orchestration</li>
+                        <li>Model serving infrastructure</li>
+                        <li>A/B testing framework</li>
+                        <li>Model monitoring and alerting</li>
+                    </ul>
+                    
+                    <h4>Key Features:</h4>
+                    <ul>
+                        <li>Automated model training and evaluation</li>
+                        <li>Canary deployments for new models</li>
+                        <li>Performance monitoring and drift detection</li>
+                        <li>Feature store for training data management</li>
+                        <li>Model explainability tools</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>3. Monitoring & Observability</h3>
+                    <p>Provides comprehensive monitoring, logging, and tracing across all services.</p>
+                    
+                    <h4>Components:</h4>
+                    <ul>
+                        <li>Metrics collection and visualization</li>
+                        <li>Distributed tracing</li>
+                        <li>Centralized logging</li>
+                        <li>Alerting and notification</li>
+                        <li>SLO/SLA monitoring</li>
+                    </ul>
+                    
+                    <h4>Key Features:</h4>
+                    <ul>
+                        <li>Real-time dashboards</li>
+                        <li>Anomaly detection</li>
+                        <li>Root cause analysis</li>
+                        <li>Performance profiling</li>
+                        <li>Capacity planning</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Deployment Architecture</h2>
+                    <p>NovaLux is deployed on Kubernetes clusters across multiple availability zones for high availability and disaster recovery.</p>
+                    
+                    <h3>Key Components:</h3>
+                    <ul>
+                        <li>Kubernetes for container orchestration</li>
+                        <li>Istio for service mesh capabilities</li>
+                        <li>Helm for package management</li>
+                        <li>ArgoCD for GitOps deployment</li>
+                        <li>Terraform for infrastructure as code</li>
+                    </ul>
+                    
+                    <h3>Deployment Strategies:</h3>
+                    <ul>
+                        <li>Blue/Green deployments for zero-downtime updates</li>
+                        <li>Canary releases for gradual rollout</li>
+                        <li>Feature flags for controlled feature release</li>
+                        <li>Automated rollbacks for failed deployments</li>
+                    </ul>
+                    
+                    <h3>Scaling Approach:</h3>
+                    <ul>
+                        <li>Horizontal pod autoscaling based on metrics</li>
+                        <li>Vertical pod autoscaling for resource optimization</li>
+                        <li>Global load balancing for geographic distribution</li>
+                        <li>Database read replicas for query scaling</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Security Architecture</h2>
+                    <p>Security is implemented at multiple layers throughout the architecture.</p>
+                    
+                    <h3>Key Security Measures:</h3>
+                    <ul>
+                        <li>Network security with segmentation and firewalls</li>
+                        <li>TLS encryption for all communications</li>
+                        <li>JWT-based authentication with short-lived tokens</li>
+                        <li>Role-based access control (RBAC)</li>
+                        <li>Secrets management with vault</li>
+                        <li>Container image scanning</li>
+                        <li>Runtime security monitoring</li>
+                        <li>Regular penetration testing</li>
+                    </ul>
+                    
+                    <h3>Data Protection:</h3>
+                    <ul>
+                        <li>Encryption at rest for all sensitive data</li>
+                        <li>Data anonymization for analytics</li>
+                        <li>Secure key management</li>
+                        <li>Regular security audits</li>
+                        <li>GDPR compliance mechanisms</li>
+                    </ul>
+                </section>
+
+                <div class="doc-navigation">
+                    <div class="doc-nav-prev">
+                        <a href="system-overview.html"><i class="fas fa-arrow-left"></i> Previous: System Overview</a>
+                    </div>
+                    <div class="doc-nav-next">
+                        <a href="ai-components.html">Next: AI Components <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>NovaLux</h2>
+                    <span class="tagline">AI Casino</span>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Documentation</h3>
+                        <ul>
+                            <li><a href="system-overview.html">System Overview</a></li>
+                            <li><a href="microservices.html">Microservices</a></li>
+                            <li><a href="ai-components.html">AI Components</a></li>
+                            <li><a href="game-features.html">Game Features</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Features</h3>
+                        <ul>
+                            <li><a href="../index.html#games">Games</a></li>
+                            <li><a href="../index.html#ai">AI Systems</a></li>
+                            <li><a href="../index.html#architecture">Architecture</a></li>
+                            <li><a href="../index.html#roadmap">Roadmap</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NovaLux AI Casino. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
